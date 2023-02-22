@@ -1,6 +1,7 @@
 ﻿using CloudTutorial.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Globalization;
 
 namespace CloudTutorial.Controllers
 {
@@ -15,10 +16,12 @@ namespace CloudTutorial.Controllers
 
         public IActionResult Index()
         {
+            string dateTime = DateTime.Now.ToString("d", new CultureInfo("en-NL"));
+            ViewData["TimeStamp"] = dateTime;
             return View();
         }
-
-        public IActionResult Privacy()
+        
+        public IActionResult About()
         {
             return View();
         }
